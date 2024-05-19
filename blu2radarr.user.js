@@ -190,7 +190,7 @@ function clickswap(imdbid, titleSlug) {
 }
 
 function set_html(update) {
-     // Select all the movies: category "1"
+    // Select all the movies: category "1"
     let listViewMovies = document.querySelectorAll('tr[data-imdb-id][data-category-id="1"]');
     if (update) {
         let buttons = document.querySelectorAll("[id^=\"BLUToRadarr-tt\"]");
@@ -226,8 +226,12 @@ function set_html(update) {
 // Blu saves imdb in the attribute data-imdb-id but seem to trim the excess 0s from tt0000001
 function padImdbId(imdbId) {
     imdbId = String(imdbId);
-    const zerosToAdd = 7 - imdbId.length;
-    const paddedImdbId = '0'.repeat(zerosToAdd) + imdbId;
+    let paddedImdbId
+    if (imdbId.length < 7) {
+        const zerosToAdd = 7 - imdbId.length;
+        paddedImdbId = '0'.repeat(zerosToAdd) + imdbId;
+    }
+    else paddedImdbId = imdbId;
     return paddedImdbId;
 }
 
@@ -248,7 +252,7 @@ async function buttonBuilder(movie, id, type) {
         movie.style.position = "relative";
         movie.prepend(button);
     }
-    else if (type == "medium") {     
+    else if (type == "medium") {
         let buttonDiv = movie.querySelector(".torrent-search--list__buttons")
         buttonDiv.append(button);
     }
