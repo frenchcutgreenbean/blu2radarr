@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         Blutopia To Radarr Mod
-// @version      0.2
+// @version      0.3
 // @author       Mod by Prism16 - Main Script by DirtyCajunRice / CatSpinner
 // @namespace    DirtyCajunRice
 // @description  Send movies to radarr from blutopia
 // @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAACTFBMVEUAAAD//////////////vu1t7j/zFCGiYz////+/v4xNjs7QEUpLjP////7+/smKzBHS09VWV1obG/////////////Z2tv/////////////////////yUdQVFg/Q0imqKp2enz19va2t7n///+XmZyTlZj/4JOOkJOEh4n/8tTY2trV1tf/9+L////r7Oz///////84PEEuMjdLT1RCRkv/zlmMj5FaXWGVl5plaGzq6+yYmpx0d3rU1dZ8f4L8/f3v7/C+wMG6u72bnaD/5qmgo6WsrrD/67mxs7XOz9H//PT///////////////////////////////////////////////82Oj//xDX/xj3/zE2JjI9SVlr/0mVdYWV4e3//1nLn5+jg4eKGiYttcHSAg4b/2XzMzc+wsrTGx8ijpqj/5KCdn6H/7cC9vsC6vL2+wMH////Q0dL/8c3k5eX/+evp6en19fXy8vL9/f3////l5ubz8/T///////////////////////////////////////////////////9YXGD/z1r/13b////c3d7HyMmqrK7s7O2Ii43/24X4+Pjy8/Opq63/7sT4+PjExcf9/f3R0tP/89bf4OHl5ubl5ebk5ebj4+Tt7u7/////////////////////////////////////////////////////wjAkKS4XHCEaHyT/wCkiJywYHiMfJSobICYhJiv/vyQeIygcIicVGh//wSz/vyctMTYSGB0KDxUSFx1vUO58AAAAsHRSTlMA5eTH5u77+uPx/fz+8uX++/r31Xkg9drSOhIJ/Pv79vb19fPz8/Pz8+vq6uno57yj/f38+/r5+fj49/f39vb19fT09PDw7+7u6+bOybimlHFgWCkeGAb+/v38+vn4+Pf39vb29vX19PTz8/Hw7e3t7Ovr6+jn5+bm5d3Y18G0sZuPi4J9ZF5EDwz5+fb19fX19PT08/Pv7ezs6+vq6ejo6Ojn3suvl5GHbFRQSjECARZmqHoAAAO5SURBVEjHjZXle9NQFMbblEFSN9Yic0UmbGMbc2FjbsBwd3d3d3d3t+ZG2yTrgH+MJPfmCQ8k3c6Hfjq/5n3Pvee9Fq0uDZw8Fg509XwabxlVDdhcqzObq2/W1h8OThy5/WKxq7HCSQHAMt7mjM7+wRH6J3Y3+HkqSsrF8KBso6voQsL+H8UZKRJDaiVSFbW7ihNZ6XfVSXJjlKV4llO+Qnlurwr1TTQVFM5kGfmPneltO/IcIKqwoKT6bvj8d2PgK+Gj5H7HbhzD8MJ8j0KTHChtdJ2YYAicTiYZMuqcilnlwrBpyzlescILa5OtH42snEgDJMnW4HI7RB6lANUK66lreBOc9B9gW6IArZjarCLurXZkxbGZsH35DxgnA1SS0jtlukpY8Zfp0IoALm8giueaAWMWR3I7cGTFz4uKFYqblYy9H28CjI3FFs/BkPskB7LizM4I9A8aA3SEpldOQcjBPDuAIy7bSHRfMAEikVhk/T70kf01UQreFt8GImgGRIZii7aMQUh7BRDU2xLNyzptDEBk5h6k61CLg+XUEWdnnTMCUMWHlk3B4UEeaHYqVhiQdnieKaBaye1AyFS/IH9EsFedMQOQrsmzNStJw/KhSJWdZgAqOnblAbSCt5dwJJ8SMAc0K/TK6ZBopUhuxlFzQLeycDaU5eOjw0dGAcTjufATbdRoAFo5EDQqUliQUJI+JwjsLWFLzU0j+bkdaKwKMPyzPJwIiNNXpyM1r/OeyZI4z+pec4Cmx2qL4U5y/NqMYfd/VeJzjQAkfo52yNtLeQHk425H+rWg2eWLRe7sQ2qep4s8Q0rZeM6s+p5BLTUkHVDFL3uKLsTBHHXnGOHJi0yiVwscWyarA8oqbEPira2pcKt/risgwuf1FX3oBRoQ/2vZdvsoUV02cQ1RcGa+RQcet8+QfrcpwOSh9dooX+V7KEZZZzGlseAdClkEbMIK81O3K43btMA4kDMMs09KbXIdg+06UD4Nxw65oQ74u8OrRdKahlDfv+l6vNKPWWGh0FvL81roWXvnWf6tD7UgG9f7C1eQMFbZpZuInm8Gcf+Z8EpbMQymt7tlBgpue0t914DFqOaH0iRq+c5Ct9W9f6ePFaD4ulWhs2avXF+WH/CC3bvUaxfg48P7kwtOQfFGNam7ygEYTuRFDr4JZU2uIjhKkxpvu+5jRfhSc2BBzr235/RRGtsoykpLFQBgAWVfdws/e9EyUl0KhjJuVK+oKW+q2nVSf6ESygoe7woEOotOTUjc9weXiUPgDnteIQAAAABJRU5ErkJggg==
-// @match        https://blutopia.cc/torrents*
+// @match        https://blutopia.cc/*
 // @require      https://cdn.jsdelivr.net/gh/sizzlemctwizzle/GM_config@43fd0fe4de1166f343883511e53546e87840aeaf/gm_config.js
 // @require      https://code.jquery.com/jquery-3.5.1.min.js
 // @copyright    2019, dirtycajunrice (https://openuserjs.org/users/dirtycajunrice)
@@ -19,6 +19,8 @@
 // ==/UserScript==
 
 /*=========================  Version History  ==================================
+Changelog 0.3   - Added profile fetching from the forum page. (This was in the PTP version but I didn't know what it did.)
+
 Changelog 0.2   - Added interval for pagination support.
 
 Changelog 0.1   - All credit to the original authors @ PTP DirtyCajunrice + CatSpinner + Prism16 
@@ -28,15 +30,6 @@ Changelog 0.1   - All credit to the original authors @ PTP DirtyCajunrice + CatS
 
 /*jshint esversion: 6 */
 var style = document.createElement('style');
-
-if (window.location.href.includes('user.php?action=edit')) {
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const userForm = document.querySelector('#userform');
-        const newDiv = document.createElement('div');
-        newDiv.textContent = 'Settings Menu';
-        userForm.appendChild(newDiv);
-    });
-}
 
 style.innerHTML = `
 button, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus {
@@ -305,6 +298,8 @@ function errorNotificationHandler(error, expected, errormsg) {
     }
 }
 
+const baseUrl = "forums/topics/5801";
+
 // radarr variables used for api calls
 let radarr_apikey = GM_config.get("radarr_apikey");
 const enableAuth = GM_config.get("enableAuth");
@@ -319,6 +314,28 @@ if (enableAuth) {
     headers["Authorization"] = "Basic " + btoa(username + ":" + password);
 }
 
+if (window.location.href.includes(baseUrl)) {
+    const link = document.createElement('a');
+    link.textContent = ' [Radarr: Fetch Quality Profiles] ';
+    link.href = '#';
+    link.className = 'form__group form__group--horizontal';
+    link.onclick = function (event) {
+        event.preventDefault();
+        fetchQualityProfiles().then(output => {
+            let modal = createModal(output);
+            document.body.appendChild(modal);
+        });
+    };
+    const linkbox = document.querySelector('aside .panelV2 .panel__body');
+    if (linkbox) {
+        linkbox.appendChild(link);
+    } else {
+        console.log("Error: Could not find the element with class name 'linkbox'.");
+    }
+} else {
+    console.log("Error: The base URL does not match.");
+}
+
 function fetchQualityProfiles() {
     if (!radarr_url || !radarr_apikey) {
         GM.notification({
@@ -330,26 +347,33 @@ function fetchQualityProfiles() {
     }
 
     return new Promise((resolve, reject) => {
-        let xhr = new XMLHttpRequest();
-        if (enableAuth) {
-            xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-        }
-        xhr.open("GET", `${radarr_url}/api/v3/qualityprofile?apikey=${radarr_apikey}`, true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                let data = JSON.parse(xhr.responseText);
-                let names = filterByName(data);
-                let ids = filterById(data);
-                let output = {};
-                for (let i = 0; i < names.length; i++) {
-                    let name = names[i];
-                    let id = ids[i];
-                    output[name.name] = id.id;
+        GM.xmlHttpRequest({
+            method: "GET",
+            url: `${radarr_url}/api/v3/qualityprofile?apikey=${radarr_apikey}`,
+            headers: headers,
+            onload: function (response) {
+                if (response.status == 200) {
+                    let data = JSON.parse(response.responseText);
+                    let names = filterByName(data);
+                    let ids = filterById(data);
+                    let output = {};
+                    for (let i = 0; i < names.length; i++) {
+                        let name = names[i];
+                        let id = ids[i];
+                        output[name.name] = id.id;
+                    }
+                    resolve(output);
+                } else {
+                    reject(`Error: ${response.status}`);
                 }
-                resolve(output);
+            },
+            onerror: function () {
+                reject("Request Error.\nCheck Radarr URL!");
+            },
+            onabort: function () {
+                reject("Request is aborted.");
             }
-        }
-        xhr.send();
+        });
     });
 }
 
@@ -389,13 +413,21 @@ function createModal(obj) {
     let modalContent = document.createElement("div");
     modalContent.style.backgroundColor = "#000";
     modalContent.style.color = "#fff";
+    modalContent.style.margin = "15% auto";
+    modalContent.style.padding = "0px";
+    modalContent.style.border = "1px solid #888";
+    modalContent.style.width = "80%";
+    modalContent.style.maxWidth = "300px";
     modalContent.style.borderRadius = "5px";
 
     let closeButton = document.createElement("button");
     closeButton.textContent = "Close";
     closeButton.style.backgroundColor = "transparent";
     closeButton.style.color = "white";
-    closeButton.style.cursor = "pointer";
+    closeButton.style.position = "absolute";
+    closeButton.style.top = "0px";
+    closeButton.style.right = "0px";
+    closeButton.style.padding = "5px 10px";
     closeButton.onclick = function () {
         modal.style.display = "none";
     };

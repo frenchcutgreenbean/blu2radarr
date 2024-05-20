@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         Blutopia To Sonarr Mod
-// @version      0.1
+// @version      0.2
 // @author       Mod by Prism16 - Main Script by DirtyCajunRice / CatSpinner
 // @namespace    DirtyCajunRice
 // @description  Send series to sonarr from blutopia
 // @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAAAAAAAAQCEeRdzAAAE/klEQVR4nJVVa0wbVBTun+k//rn4QzNFs1EeLbS0vB9jUF7jsUjcIyCvBdh4Bn9IpVBgHS/RZbrgNrM4FiA8BCZUXgERnTEm+zMmEoKWuPEqG5QCbXl/nnsDyGtsnuS0t733fufcc75zjkBwiDiQKJVKVWtra/fQ0NCTmZmZtdnZ2fXh4eExrVbbq1KpCpxIDsM4UGxIqqur6wlsdWVlBRaLBfPz86DfXNma/cf25ubm1hsaGu4zZ14J3MvLN16v189tXt4GfZEaDAYsLy/T9+xiSEjYpUPB33D0UvoEXkBNbRMsZjO//DIDTC0WMzo7exEQHoejEt/CA8HFImmC8+kE2MYqIfMIR9W9eiwtWWA0Gl8IbKQXLi8vQavtgodfFGw+UkIaShhC8e6X2NraCp88fbpQVFgBe79zEJIRF/fTuPZ5JcbGJriHTM1mE1f2OvZ7akqPb25VwcPnDGzojv3Js8jMzMXfulGTWCz+Lye1tbUta2trPObq/DI4+J3Fu8pbsFfEICIsGoVXr6GawtbyfQfX2roWFJd9hagzsbAjj98uqILINwppaTmY0uuxsb6O+vr6Ng4uEonEFOs1Fm8WDmYkO12Jd5KuwKphEOKwREhlgZCQyiT+kEn9+VrirIBDRBKsvhuCdYIaSQmZHHyBGMawGLuIwRIB8VzNGLMV18XFBTz+40/4eYXh/YzP8F7O1/CWB0AeFA1hchHpFb72litwgvaPX7rKzz4aGITJtLiNwzDz8/M1AiqiHsbpnclbWFhAakYuZOSpp1sw7ONVeL3nGQSPwPW13uewS8yDl2sQnVEgLSuPO7YTw0x56ujo+FkwODj4z84i2qLdF9dvUxgCydsYDigYIPCHmzrAjMxAFhzDz5RVVPI7uxhG4dbpdM8EVP7rB/H6zt06ODv5wYZCwD1/uEfJiM3lYkjpzJc37uwzsFWEAvrY2GeAnvct1QE3QCC7vN9pILUEUseXGBgZGZncW0zscOXNKs4UWUgsjvQZdhuhFx35aQ6y0FgeopLyG/sMMDaOjo4+F7S3t/ezhOxOkAm5+eWcnowttkmFHJAbeUzg/UbOKLbnLA9CaqaKE2Nvkru6uh4I1Gq1ZidNjcY5jE9MIjI8GqLIFAgpB14uVAOhcTiRXk7ULOdrT7cQHCu4B8fIZCj8P8DIX7pdHZdhFhUVlQokEomUnrOx1dhYb7l98y7sguN4EdmkaODqEgyZnFRyiivz2sU1GMfTymDVOARbOltWep33LoazWbQbMhJezY2NjT+wlsviqNV2w8M7Em8V1cA6WQM35wBERF1E0uVPkJmtRubHBUhJ+xRR51LgIQ+EdWIBjuXdgYtHGGpqmjgGw2pubu7c7kVsWFA/N3d2/rjZFXMgon4UfT4J3T39mJycwjwRgcV5kZSFYnp6Gr88+J23CNHJD3mDlHtGoK7+PiXYYNk36WhYpASEx/OWyzpqepoSE5OT3CPGCHJgD0sMnAxUR1DlFsPu1HkIyTHfoAtQKEIyDpwJR5181NLQeGRlqaDXT5PH8/u4vW8m0MsMZEytLoM0/CLedPYrPXSqCWlY6HSji+vUcl9lorEzq6urrJMuyWTu2YeCb4mjo6OoqampjcWa0Y1xeud8ZqAmk4nvsby0tbV1yeWbjPk/IifRaDSlPT09v46NjRm3KDg+Pj7f19f3W0lJSYWbm5v7YRj/An8cf5ZA2dAQAAAAAElFTkSuQmCC
-// @match        https://blutopia.cc/torrents*
+// @match        https://blutopia.cc/*
 // @require      https://cdn.jsdelivr.net/gh/sizzlemctwizzle/GM_config@43fd0fe4de1166f343883511e53546e87840aeaf/gm_config.js
 // @require      https://code.jquery.com/jquery-3.5.1.min.js
 // @copyright    2019, dirtycajunrice (https://openuserjs.org/users/dirtycajunrice)
@@ -19,6 +19,7 @@
 // ==/UserScript==
 
 /*=========================  Version History  ==================================
+Changelog 0.2   - Added profile fetching from the forum page. (This was in the PTP version but I didn't know what it did.)
 
 Changelog 0.1   - All credit to the original authors @ PTP DirtyCajunrice + CatSpinner + Prism16 
                   Blutopia support added by dantayy.
@@ -27,15 +28,6 @@ Changelog 0.1   - All credit to the original authors @ PTP DirtyCajunrice + CatS
 
 /*jshint esversion: 6 */
 var style = document.createElement('style');
-
-if (window.location.href.includes('user.php?action=edit')) {
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const userForm = document.querySelector('#userform');
-        const newDiv = document.createElement('div');
-        newDiv.textContent = 'Settings Menu';
-        userForm.appendChild(newDiv);
-    });
-}
 
 style.innerHTML = `
 button, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus {
@@ -305,6 +297,8 @@ function errorNotificationHandler(error, expected, errormsg) {
     }
 }
 
+const baseUrl = "forums/topics/5801";
+
 // sonarr variables used for api calls
 let sonarr_apikey = GM_config.get("sonarr_apikey");
 const enableAuth = GM_config.get("enableAuth");
@@ -319,6 +313,29 @@ if (enableAuth) {
     headers["Authorization"] = "Basic " + btoa(username + ":" + password);
 }
 
+if (window.location.href.includes(baseUrl)) {
+    const link = document.createElement('a');
+    link.textContent = ' [Sonarr: Fetch Quality Profiles] ';
+    link.href = '#';
+    link.className = 'form__group form__group--horizontal';
+    link.onclick = function (event) {
+        event.preventDefault();
+        fetchQualityProfiles().then(output => {
+            let modal = createModal(output);
+            document.body.appendChild(modal);
+        });
+    };
+    const linkbox = document.querySelector('aside .panelV2 .panel__body');
+    if (linkbox) {
+        linkbox.appendChild(link);
+    } else {
+        console.log("Error: Could not find the element with class name 'linkbox'.");
+    }
+} else {
+    console.log("Error: The base URL does not match.");
+}
+
+
 function fetchQualityProfiles() {
     if (!sonarr_url || !sonarr_apikey) {
         GM.notification({
@@ -330,26 +347,33 @@ function fetchQualityProfiles() {
     }
 
     return new Promise((resolve, reject) => {
-        let xhr = new XMLHttpRequest();
-        if (enableAuth) {
-            xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-        }
-        xhr.open("GET", `${sonarr_url}/api/v3/qualityprofile?apikey=${sonarr_apikey}`, true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                let data = JSON.parse(xhr.responseText);
-                let names = filterByName(data);
-                let ids = filterById(data);
-                let output = {};
-                for (let i = 0; i < names.length; i++) {
-                    let name = names[i];
-                    let id = ids[i];
-                    output[name.name] = id.id;
+        GM.xmlHttpRequest({
+            method: "GET",
+            url: `${sonarr_url}/api/v3/qualityprofile?apikey=${sonarr_apikey}`,
+            headers: headers,
+            onload: function (response) {
+                if (response.status == 200) {
+                    let data = JSON.parse(response.responseText);
+                    let names = filterByName(data);
+                    let ids = filterById(data);
+                    let output = {};
+                    for (let i = 0; i < names.length; i++) {
+                        let name = names[i];
+                        let id = ids[i];
+                        output[name.name] = id.id;
+                    }
+                    resolve(output);
+                } else {
+                    reject(`Error: ${response.status}`);
                 }
-                resolve(output);
+            },
+            onerror: function () {
+                reject("Request Error.\nCheck Sonarr URL!");
+            },
+            onabort: function () {
+                reject("Request is aborted.");
             }
-        }
-        xhr.send();
+        });
     });
 }
 
@@ -389,13 +413,21 @@ function createModal(obj) {
     let modalContent = document.createElement("div");
     modalContent.style.backgroundColor = "#000";
     modalContent.style.color = "#fff";
+    modalContent.style.margin = "15% auto";
+    modalContent.style.padding = "0px";
+    modalContent.style.border = "1px solid #888";
+    modalContent.style.width = "80%";
+    modalContent.style.maxWidth = "300px";
     modalContent.style.borderRadius = "5px";
 
     let closeButton = document.createElement("button");
     closeButton.textContent = "Close";
     closeButton.style.backgroundColor = "transparent";
     closeButton.style.color = "white";
-    closeButton.style.cursor = "pointer";
+    closeButton.style.position = "absolute";
+    closeButton.style.top = "0px";
+    closeButton.style.right = "0px";
+    closeButton.style.padding = "5px 10px";
     closeButton.onclick = function () {
         modal.style.display = "none";
     };
