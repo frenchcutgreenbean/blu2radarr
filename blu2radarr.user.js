@@ -207,11 +207,15 @@ function set_html(update) {
         });
     }
     if (current_page_type == "singletorrent") {
-        let a = document.querySelector("[href*=\"://www.imdb.com/title/tt\"]");
-        let id = a.href.match(/tt\d+/)[0];
-        let movie = document.querySelector(".torrent__tags");
-        if (id) {
-            buttonBuilder(movie, id, "single");
+        let catSelector = document.querySelector("[href*=\"://blutopia.cc/torrents?categories%5B0%5D=\"]")
+        let category = catSelector.href.match(/=(\d+)/)[1];
+        if (category === "1") {
+            let a = document.querySelector("[href*=\"://www.imdb.com/title/tt\"]");
+            let id = a.href.match(/tt\d+/)[0];
+            let movie = document.querySelector(".torrent__tags");
+            if (id) {
+                buttonBuilder(movie, id, "single");
+            }
         }
     }
     else if (current_page_type == "multi") {
