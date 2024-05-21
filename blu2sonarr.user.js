@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Blutopia To Sonarr Mod
-// @version      0.2
+// @version      0.3
 // @author       Mod by Prism16 - Main Script by DirtyCajunRice / CatSpinner
 // @namespace    DirtyCajunRice
 // @description  Send series to sonarr from blutopia
@@ -19,6 +19,8 @@
 // ==/UserScript==
 
 /*=========================  Version History  ==================================
+Changelog 0.3   - Support for request pages and logic to not run on all pages.
+
 Changelog 0.2   - Added profile fetching from the forum page. (This was in the PTP version but I didn't know what it did.)
 
 Changelog 0.1   - All credit to the original authors @ PTP DirtyCajunrice + CatSpinner + Prism16 
@@ -154,16 +156,19 @@ let url = window.location.href;
 let sonarr_url = GM_config.get("sonarr_url").replace(/\/$/, "");
 var current_page_type = "";
 let oldSelection = undefined;
-
+const isSimilar = window.location.href.includes("similar");
+const isRequest = window.location.href.includes("request");
 
 // So it is still "multi" on similar page.
-if (document.querySelector("section.meta") && !document.querySelector(".torrent-search--list__overview")) {
+if (document.querySelector("section.meta") && !isSimilar && !isRequest) {
     current_page_type = "singletorrent";
 }
-else {
+else if (document.querySelector("section.meta") && isRequest) {
+    current_page_type = "request";
+}
+else if (isSimilar || window.location.href.includes("torrent")) {
     current_page_type = "multi";
 }
-
 if (current_page_type) {
     set_html(false);
 }
@@ -209,6 +214,13 @@ function set_html(update) {
                 buttonBuilder(series, id, "single");
             }
         }
+    } else if (current_page_type === "request") {
+        let a = document.querySelector("[href*=\"://www.themoviedb.org/\"]");
+        let id = a.href.match(/\.org\/(.*)\//)[1];
+        if (id == "tv") {
+            let series = document.querySelector(".request__tags");
+            buttonBuilder(series, id, "single");
+        }
     }
     else if (current_page_type == "multi") {
         listViewSeries.forEach((series) => {
@@ -252,11 +264,12 @@ async function buttonBuilder(series, id, type) {
     button.style.fontSize = "10px";
     Object.assign(button.style, { border: "none", backgroundColor: "transparent" });
     if (type == "single") {
-        Object.assign(button.style, { position: "absolute", top: "-30px", right: "0", transform: "translateX(0)", zIndex: 10, });
         button.style.animation = "none";
-        button.style.fontSize = "20px"
+        button.style.fontSize = "14px"
+        button.style.padding ="6px 12px"
+        button.style.fontWeight = "500";
         series.style.position = "relative";
-        series.prepend(button);
+        series.append(button);
     }
     else if (type == "medium") {
         let buttonDiv = series.querySelector(".torrent-search--list__buttons")
